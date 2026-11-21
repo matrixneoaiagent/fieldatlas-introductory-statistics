@@ -30,6 +30,12 @@ section's module. Those blocks are concatenated in book order. Each block is
 preceded by the book's own section title so the reader knows which section a
 term or exercise came from; no other text is added.
 
+Every document's text opens with the document's own page title (the same string
+as its `title` field, which is the book's own numbering and heading), because
+the book renders that heading at the top of the page. Numbered sections keep
+the heading as their first body line; composite pages already carry it as the
+per-section block heading. Nothing else is added.
+
 Usage:
   python3 extract_introductory_statistics.py \
       --osbooks /path/to/osbooks-introductory-statistics-bundle-main \
@@ -221,12 +227,13 @@ def main() -> None:
                 if _local(child) == "section" and (child.get("class") or "") in BUCKETS:
                     continue
                 body.append(child)
+            section_title = toc_text(page["title"])
             docs.append({
                 "document_id": f"is2e-{ch_no}-{sec_no}",
-                "title": toc_text(page["title"]),
+                "title": section_title,
                 "source": f"{BOOK_URL}/{page['slug']}",
                 "license": LICENSE_ID,
-                "text": module_to_text(body, resolve_link=resolver_for(r)),
+                "text": f"{section_title}\n\n" + module_to_text(body, resolve_link=resolver_for(r)),
             })
             report.append((f"ch{ch_no} sec{sec_no}", mid, len(docs[-1]["text"])))
 

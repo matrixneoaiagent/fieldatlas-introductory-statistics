@@ -5,7 +5,7 @@ fixed timestamps: True
 zip test: True
 sqlite inside the zip matches the extracted copy: True
 pack bytes: 3953771
-pack sha256: 45bb4c30b59d0547dab7b32a7bfef990faccfbc2ab1cf3469349799f9ee7f25d
+pack sha256: 6742ec4f35d188260fc11c3f35bebc0f8ee217758390aa807fb6be4c7f9f752a
 
 == manifest ==
 {
@@ -13,7 +13,7 @@ pack sha256: 45bb4c30b59d0547dab7b32a7bfef990faccfbc2ab1cf3469349799f9ee7f25d
     {
       "bytes": 3952640,
       "path": "content.sqlite",
-      "sha256": "136f1d12af38d9a954c44491c0caa3b0cb53addb4e868014cdd212d21558305d"
+      "sha256": "76f3dadd44854eff932b809fd41b6cb4a80556ebc4f8f9b1013f4b99403df07f"
     }
   ],
   "discovery": {
@@ -36,11 +36,11 @@ pack sha256: 45bb4c30b59d0547dab7b32a7bfef990faccfbc2ab1cf3469349799f9ee7f25d
   ],
   "title": "Mathematics: Introductory Statistics",
   "type": "KNOWLEDGE",
-  "version": "1.0.0"
+  "version": "1.1.0"
 }
 
 == checksums ==
-SHA256SUMS entries: ['content.sqlite', 'introductory-statistics-2e-1.0.0.fapack', 'manifest.json']
+SHA256SUMS entries: ['content.sqlite', 'introductory-statistics-2e-1.1.0.fapack', 'manifest.json']
 content.sqlite matches: True
 manifest.json matches:  True
 pack file matches:      True
@@ -49,50 +49,50 @@ pack file matches:      True
 user_version: 1
 quick_check: ok
 columns: ['chunk_id', 'document_id', 'title', 'source', 'text']
-chunks: 1939
+chunks: 1944
 documents: 186
-chunk chars: 1981027  empty chunks: 0
+chunk chars: 1985001  empty chunks: 0
 sqlite bytes: 3952640
-chunks per document (min/avg/max): (1, 10.42, 131)
+chunks per document (min/avg/max): (1, 10.45, 131)
 
 == FTS5 example questions ==
 Q: What is the difference between a parameter and a statistic?
    text query "parameter" AND "statistic"  ->  is2e-1-1 at rank 1  PASS (top 3)
-       -9.537  is2e-1-1               1.1 Definitions of Statistics, Probability, and Key Ter ed all math classes to be the population, then the average n
-       -9.416  is2e-appendix-a        Appendix A Review Exercises (Ch 3-13)                   These review exercises are designed to provide extra practic
-       -9.178  is2e-1-1               1.1 Definitions of Statistics, Probability, and Key Ter e in the entire country. Manufacturers of canned carbonated 
-   title lookup title:"definitions of statistics" -> is2e-1-1 (-5.521), is2e-1-1 (-5.492), is2e-1-1 (-5.395)
+       -9.555  is2e-1-1               1.1 Definitions of Statistics, Probability, and Key Ter ed all math classes to be the population, then the average n
+       -9.434  is2e-appendix-a        Appendix A Review Exercises (Ch 3-13)                   These review exercises are designed to provide extra practic
+       -9.196  is2e-1-1               1.1 Definitions of Statistics, Probability, and Key Ter e in the entire country. Manufacturers of canned carbonated 
+   title lookup title:"definitions of statistics" -> is2e-1-1 (-5.523), is2e-1-1 (-5.495), is2e-1-1 (-5.397)
 Q: How do you find the median of an even number of observations?
    text query median  ->  is2e-2-5 at rank 1  PASS (top 3)
-       -5.321  is2e-2-5               2.5 Measures of the Center of the Data                  n the second calculation, the frequencies are 3, 2, 1, and 5
-       -5.263  is2e-2-homework        Homework                                                32.35–37.8 | 7 37.8–43.25 | 6 43.25–48.7 | 1 The mean percen
-       -5.048  is2e-2-6               2.6 Skewness and the Mean, Median, and Mode             over 2, five x's over 3, and two x's over 4. There are no x'
-   title lookup title:"measures of the center" -> is2e-2-5 (-5.952), is2e-2-5 (-5.344), is2e-2-5 (-5.025)
+       -5.343  is2e-2-5               2.5 Measures of the Center of the Data                  n the second calculation, the frequencies are 3, 2, 1, and 5
+       -5.285  is2e-2-homework        Homework                                                32.35–37.8 | 7 37.8–43.25 | 6 43.25–48.7 | 1 The mean percen
+       -5.069  is2e-2-6               2.6 Skewness and the Mean, Median, and Mode             over 2, five x's over 3, and two x's over 4. There are no x'
+   title lookup title:"measures of the center" -> is2e-2-5 (-5.954), is2e-2-5 (-5.239), is2e-2-5 (-5.026)
 Q: What is the empirical rule?
    text query "empirical rule"  ->  is2e-2-7 at rank 1  PASS (top 3)
-       -6.754  is2e-2-7               2.7 Measures of the Spread of the Data                  o standard deviations of the mean. - More than 99% of the da
-       -6.713  is2e-6-1               6.1 The Standard Normal Distribution                    standard deviations to the right of their means, they repres
-       -6.694  is2e-6-1               6.1 The Standard Normal Distribution                    andard deviations of the mean. - The z-scores for +1σ and –1
-   title lookup title:"measures of the spread" -> is2e-2-7 (-5.546), is2e-2-7 (-5.245), is2e-2-7 (-5.066)
+       -6.757  is2e-2-7               2.7 Measures of the Spread of the Data                  o standard deviations of the mean. - More than 99% of the da
+       -6.715  is2e-6-1               6.1 The Standard Normal Distribution                    standard deviations to the right of their means, they repres
+       -6.696  is2e-6-1               6.1 The Standard Normal Distribution                    andard deviations of the mean. - The z-scores for +1σ and –1
+   title lookup title:"measures of the spread" -> is2e-2-7 (-5.548), is2e-2-7 (-5.247), is2e-2-7 (-5.069)
 Q: How is a z-score calculated?
    text query "z-score"  ->  is2e-6-1 at rank 2  PASS (top 3)
-       -6.229  is2e-6-practice        Practice                                                2.78 standard deviations to the right of the mean? z = 2.78 
-       -6.137  is2e-6-1               6.1 The Standard Normal Distribution                    = _______. This z-score tells you that x = 168 is ________ s
-       -5.946  is2e-6-1               6.1 The Standard Normal Distribution                    μ. Or, when z is positive, x is greater than μ, and when z i
-   title lookup title:"standard normal" -> is2e-6-1 (-6.860), is2e-6-1 (-4.943), is2e-6-1 (-4.829)
+       -6.233  is2e-6-practice        Practice                                                2.78 standard deviations to the right of the mean? z = 2.78 
+       -6.142  is2e-6-1               6.1 The Standard Normal Distribution                    = _______. This z-score tells you that x = 168 is ________ s
+       -5.950  is2e-6-1               6.1 The Standard Normal Distribution                    μ. Or, when z is positive, x is greater than μ, and when z i
+   title lookup title:"standard normal" -> is2e-6-1 (-6.863), is2e-6-1 (-4.944), is2e-6-1 (-4.831)
 Q: What is a binomial distribution?
-   text query "binomial distribution"  ->  is2e-4-3 at rank 5  MISS (not top 3)
-       -6.074  is2e-7-3               7.3 Using the Central Limit Theorem                     ngineers designing the 757, which result is more relevant: t
-       -5.868  is2e-9-3               9.3 Probability Distribution Needed for Hypothesis Test deviation. (Note that if the sample size is sufficiently lar
-       -5.566  is2e-7-3               7.3 Using the Central Limit Theorem                     159,8.6447) = 0.6572. For part d, you exclude 147 so P(X < 1
-   title lookup title:"binomial distribution" -> is2e-4-3 (-6.724), is2e-4-3 (-6.013), is2e-4-3 (-5.042)
+   text query "binomial distribution"  ->  is2e-4-3 at rank 2  PASS (top 3)
+       -6.044  is2e-7-3               7.3 Using the Central Limit Theorem                     ngineers designing the 757, which result is more relevant: t
+       -5.900  is2e-4-3               4.3 Binomial Distribution                               4.3 Binomial Distribution There are three characteristics of
+       -5.840  is2e-9-3               9.3 Probability Distribution Needed for Hypothesis Test deviation. (Note that if the sample size is sufficiently lar
+   title lookup title:"binomial distribution" -> is2e-4-3 (-6.639), is2e-4-3 (-6.259), is2e-4-3 (-5.937)
 Q: How do you interpret a confidence interval?
-   text query "confidence interval"  ->  is2e-8-1 at rank 2  PASS (top 3)
-       -4.896  is2e-8-5               8.5 Confidence Interval (Place of Birth)                aph with the area in each section. Then, fill in the number 
-       -4.829  is2e-8-1               8.1 A Single Population Mean using the Normal Distribut ercent of all confidence intervals constructed in this way c
-       -4.818  is2e-8-4               8.4 Confidence Interval (Home Costs)                    n one to two complete sentences, explain what this confidenc
-example-question text queries: expected section in top 3 for 5/6
+   text query "confidence interval"  ->  is2e-8-1 at rank 3  PASS (top 3)
+       -4.901  is2e-8-5               8.5 Confidence Interval (Place of Birth)                aph with the area in each section. Then, fill in the number 
+       -4.846  is2e-8-5               8.5 Confidence Interval (Place of Birth)                8.5 Confidence Interval (Place of Birth) Confidence Interval
+       -4.834  is2e-8-1               8.1 A Single Population Mean using the Normal Distribut ercent of all confidence intervals constructed in this way c
+example-question text queries: expected section in top 3 for 6/6
 
 == rebuild determinism ==
-rebuild sha256: 45bb4c30b59d0547dab7b32a7bfef990faccfbc2ab1cf3469349799f9ee7f25d
+rebuild sha256: 6742ec4f35d188260fc11c3f35bebc0f8ee217758390aa807fb6be4c7f9f752a
 byte-identical to shipped pack: True

@@ -20,7 +20,7 @@ import zipfile
 
 HERE = Path(__file__).resolve().parent
 PACK_DIR = HERE / "pack"
-PACK = PACK_DIR / "introductory-statistics-2e-1.0.0.fapack"
+PACK = PACK_DIR / "introductory-statistics-2e-1.1.0.fapack"
 REPO = Path("/tmp/opencode/fieldatlas")
 STOP = {
     "a", "an", "and", "are", "as", "at", "be", "between", "by", "do", "does",
@@ -64,7 +64,7 @@ def main() -> int:
     assert manifest["schemaVersion"] == 1
     assert manifest["type"] == "KNOWLEDGE"
     assert manifest["id"] == "introductory-statistics-2e"
-    assert manifest["version"] == "1.0.0"
+    assert manifest["version"] == "1.1.0"
     assert manifest["license"] == "CC BY-NC-SA 4.0"
     assert manifest["sourceUrls"] == ["https://openstax.org/details/books/introductory-statistics-2e"]
     assert manifest["discovery"]["coverageLevel"] == "broad"

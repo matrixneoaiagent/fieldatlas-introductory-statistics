@@ -8,13 +8,23 @@ A–H, and the preface.
 
 | | |
 |---|---|
-| Pack file | `introductory-statistics-2e-1.0.0.fapack` (3,953,771 bytes / 3.77 MiB) |
-| Pack sha256 | `45bb4c30b59d0547dab7b32a7bfef990faccfbc2ab1cf3469349799f9ee7f25d` |
-| Corpus | `docs.jsonl` (1,791,746 bytes, sha256 `3d9e1311756aa02a8d67b620cada2d68672c868104a6a683f297213e5882c5ed`) |
-| Manifest | `pack/manifest.json` — id `introductory-statistics-2e`, version `1.0.0`, type `KNOWLEDGE`, coverage `broad` |
-| Documents / chunks | **186 documents, 1,939 chunks** (1.72 M characters of text) |
-| Words | **303,319** |
+| Pack file | `introductory-statistics-2e-1.1.0.fapack` (3,953,771 bytes / 3.77 MiB) |
+| Pack sha256 | `6742ec4f35d188260fc11c3f35bebc0f8ee217758390aa807fb6be4c7f9f752a` |
+| Corpus | `docs.jsonl` (1,795,130 bytes, sha256 `bf5d0149cc607cb1e0a39773832d00dee26378c848113931a631512b8f0e4791`) |
+| Manifest | `pack/manifest.json` — id `introductory-statistics-2e`, version `1.1.0`, type `KNOWLEDGE`, coverage `broad` |
+| Documents / chunks | **186 documents, 1,944 chunks** (1.72 M characters of text) |
+| Words | **303,774** |
 | Licence | source book: **CC BY-NC-SA 4.0** (see "Licence" below) |
+
+### Releases
+
+| Release | Pack | sha256 | Notes |
+|---|---|---|---|
+| [v0.1.0](https://github.com/matrixneoaiagent/fieldatlas-introductory-statistics/releases/tag/v0.1.0) | `introductory-statistics-2e-1.0.0.fapack` (3,953,771 B) | `45bb4c30b59d0547dab7b32a7bfef990faccfbc2ab1cf3469349799f9ee7f25d` | first publication; 1,939 chunks; 5/6 example questions top-3 |
+| [v1.1.0](https://github.com/matrixneoaiagent/fieldatlas-introductory-statistics/releases/tag/v1.1.0) | `introductory-statistics-2e-1.1.0.fapack` (3,953,771 B) | `6742ec4f35d188260fc11c3f35bebc0f8ee217758390aa807fb6be4c7f9f752a` | every numbered section's body opens with its own page heading; 1,944 chunks; **6/6** example questions top-3 |
+
+v0.1.0 is immutable; this README describes v1.1.0. Both pack files are kept in the repository
+so the earlier release stays verifiable.
 
 ## What is inside
 
@@ -35,6 +45,11 @@ Statistics, Probability, and Key Terms"), `source` (the exact
 Worked examples (problem + solution), "Try It" exercises, tables, notes, figures
 (alt text and caption) and exercises stay inside the section or homework page they belong
 to. Nothing is summarised or rewritten.
+
+Every numbered section's text opens with its own page heading — the same string as its
+`title` field, e.g. `4.3 Binomial Distribution` — so the body starts the way the book's
+page starts. This is the section-title-as-heading convention the composite pages already
+use for their per-section blocks (see "Known limitations"); no other text is added.
 
 ## Licence and credit
 
@@ -89,20 +104,20 @@ curl -sS -o is_api.json \
 Hashes of those inputs: bundle tarball `3cf1c53051407da140a1e9347c539dc5b7d5d12fef1d48f770d39ca9ef7dd7a1`,
 `book.json` `00c3fb2de3ee2e6bb76fc2819d070b527f628599f2b3f6f3d203898ccb0c6cc4`.
 
-Build (from this folder):
+Build (from the root of this repository; `packtool` is the Field Atlas in-repo tool):
 
 ```bash
-cd /tmp/opencode/fieldatlas_pack
+cd /path/to/fieldatlas-introductory-statistics
 python3 extract_introductory_statistics.py \
   --osbooks /tmp/opencode/book/osbooks-introductory-statistics-bundle-main \
   --toc /tmp/opencode/book.json \
   --out docs.jsonl
 
-cd /tmp/opencode/fieldatlas
+cd /path/to/fieldatlas
 python3 -m packtool.build_pack \
-  --input /tmp/opencode/fieldatlas_pack/docs.jsonl \
-  --output /tmp/opencode/fieldatlas_pack/pack \
-  --id introductory-statistics-2e --version 1.0.0 \
+  --input /path/to/fieldatlas-introductory-statistics/docs.jsonl \
+  --output /path/to/fieldatlas-introductory-statistics/pack \
+  --id introductory-statistics-2e --version 1.1.0 \
   --title "Mathematics: Introductory Statistics" \
   --license "CC BY-NC-SA 4.0" \
   --source-url https://openstax.org/details/books/introductory-statistics-2e \
@@ -114,20 +129,20 @@ python3 -m packtool.build_pack \
   --example-question "How is a z-score calculated?" \
   --example-question "What is a binomial distribution?" \
   --example-question "How do you interpret a confidence interval?"
-cp pack/introductory-statistics-2e-1.0.0.fapack .
+cp pack/introductory-statistics-2e-1.1.0.fapack .
 ```
 
 Validate:
 
 ```bash
-cd /tmp/opencode/fieldatlas && python3 -m unittest \
+cd /path/to/fieldatlas && python3 -m unittest \
   packtool.tests.test_schema packtool.tests.test_chunking packtool.tests.test_build_pack -v
-cd /tmp/opencode/fieldatlas_pack && python3 validate_pack.py    # writes validation.log
+cd /path/to/fieldatlas-introductory-statistics && python3 validate_pack.py   # writes validation.log
 ```
 
 The build is deterministic: re-running `build_pack` from the same `docs.jsonl` produces a
-byte-identical `.fapack` (checked twice, sha256 `45bb4c30…`), and re-running the extractor
-produces a byte-identical `docs.jsonl`.
+byte-identical `.fapack` (checked twice, sha256 `6742ec4f…`), and re-running the extractor
+produces a byte-identical `docs.jsonl` (sha256 `bf5d0149…`).
 
 ## Validation results
 
@@ -140,24 +155,42 @@ produces a byte-identical `docs.jsonl`.
 * manifest: id/version/title/licence/sourceUrls/discovery as above; checksum list
   `SHA256SUMS` matches `content.sqlite`, `manifest.json` and the pack file.
 * sqlite: `PRAGMA user_version = 1`, `quick_check = ok`, columns
-  `chunk_id, document_id, title, source, text`; 1,939 chunks over 186 documents, 0 empty
-  chunks; chunks per document 1 / 10.42 / 131 (max = Appendix B, the practice-test appendix).
+  `chunk_id, document_id, title, source, text`; 1,944 chunks over 186 documents, 0 empty
+  chunks; chunks per document 1 / 10.45 / 131 (max = Appendix B, the practice-test appendix).
 * FTS5: for the six manifest example questions, the canonical section is in the top 3 for
-  **5 of 6** with a plain bm25 query, and the section's own title lookup returns it first:
+  **6 of 6** with a plain bm25 query (`ORDER BY bm25(chunks_fts)`), and the section's own
+  title lookup returns it first.
 
-| Question | Query | Expected section | Rank |
-|---|---|---|---|
-| parameter vs statistic | `"parameter" AND "statistic"` | `is2e-1-1` 1.1 Definitions… | 1 |
-| median of an even count | `median` | `is2e-2-5` 2.5 Measures of the Center | 1 |
-| empirical rule | `"empirical rule"` | `is2e-2-7` 2.7 Measures of the Spread | 1 |
-| z-score | `"z-score"` | `is2e-6-1` 6.1 Standard Normal | 2 |
-| binomial distribution | `"binomial distribution"` | `is2e-4-3` 4.3 Binomial Distribution | 5 |
-| confidence interval | `"confidence interval"` | `is2e-8-1` 8.1 Single Population Mean | 2 |
+| Question | Query | Expected section | v0.1.0 rank | v1.1.0 rank |
+|---|---|---|---|---|
+| parameter vs statistic | `"parameter" AND "statistic"` | `is2e-1-1` 1.1 Definitions… | 1 | 1 |
+| median of an even count | `median` | `is2e-2-5` 2.5 Measures of the Center | 1 | 1 |
+| empirical rule | `"empirical rule"` | `is2e-2-7` 2.7 Measures of the Spread | 1 | 1 |
+| z-score | `"z-score"` | `is2e-6-1` 6.1 Standard Normal | 2 | 2 |
+| binomial distribution | `"binomial distribution"` | `is2e-4-3` 4.3 Binomial Distribution | 5 | **2** |
+| confidence interval | `"confidence interval"` | `is2e-8-1` 8.1 Single Population Mean | 2 | 3 |
 
-  The binomial case is a bm25 artefact, not missing content: chapter 7's CLT worked
-  examples and chapter 9's hypothesis-test pages repeat the phrase, and FTS5's length
-  normalisation prefers their shorter chunks. `title:"binomial distribution"` returns only
-  `is2e-4-3` chunks (rank 1–3), which is what the app's title/coverage boosts do.
+  **The v0.1.0 binomial miss, and the fix.** FTS5's `bm25` scores a *phrase* by how often it
+  occurs in a row, divided by FTS5's length normalisation (`k1 = 1.2`, `b = 0.75`, no column
+  weights). Section 4.3 is 13,208 characters, so its 15 chunks are near the corpus average
+  (1,022 chars) and the exact phrase "binomial distribution" occurs in only three of them,
+  once each. The competing hits are shorter or denser: `is2e-7-3`'s "Normal Approximation to
+  the Binomial" note contains the phrase four times in 1,115 characters, and `is2e-9-3` and
+  `is2e-9-practice` repeat it in compact hypothesis-test passages. The section's own title
+  was indexed in the `title` column but its tokens were absent from `text`, so the body
+  chunks could not outscore them.
+
+  v1.1.0 prefixes each numbered section's body with the book's own page heading
+  (`4.3 Binomial Distribution`), which is how the composite pages already carry per-section
+  headings. That is the only corpus change: 80 documents, `text` gains exactly
+  `<title>\n\n`, no words are added beyond the title strings, and the total grows by 455
+  words. `is2e-4-3` now ranks 2 (bm25 −5.900 vs −5.106 before); the confidence-interval
+  question moves from rank 2 to rank 3 but stays in the top 3 (the three `is2e-8-*` hits sit
+  within 0.077 bm25 points of each other).
+
+  The change is not specific to one question: as a general check, querying each numbered
+  section's own title puts the right document at rank 1 for 61/80 sections (was 42/80) and in
+  the top 3 for 79/80 (was 72/80). Composite-page retrieval is unchanged.
 
 ## Known limitations
 
@@ -191,3 +224,8 @@ produces a byte-identical `docs.jsonl`.
 9. **No PDF page ranges in `source`.** Every document points at its exact web page instead;
    the PDF was downloaded only as a cross-check (its text extraction mangles ligatures such
    as "ffi" and interleaves page headers, so it was not used as an oracle).
+10. **A numbered section's heading also appears at the top of its body.** `text` begins with
+    the same string as `title`, so a reader that renders both shows it twice. That is
+    deliberate: the body then starts the way the book's page starts, and the section title is
+    searchable as body text (see "Validation results"). It is the only text added anywhere in
+    the corpus, and it is the book's own title.
